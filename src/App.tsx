@@ -90,7 +90,7 @@ function App() {
       </div>
 
       <div
-        className="min-h-screen w-full pb-1 -mt-8 pt-10
+        className="min-h-screen w-full pb-1 -mt-8 pt-12
     bg-[linear-gradient(to_bottom,_#f5e6c4_0%,_#e3c79d_10%,_#c49a6c_25%,_#8b5a2b_45%,_#5a3825_60%,_#2e1a0f_90%,_#0d0603_100%)]"
       >
         {/* Alerts */}
@@ -121,7 +121,7 @@ function App() {
         </div>
 
         <div className="max-w-[1480px] mx-auto mt-8 px-4 min-h-screen">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-11">
             {(showSavedList ? savedCaffes : cafes).map((cafe) => (
               <div key={cafe.place_id} className="flex flex-col">
                 <div className="flex-1">
@@ -143,7 +143,6 @@ function App() {
                 )}
                 {showSavedList && (
                   <button
-                    onClick={() => unSaveCafe(cafe)}
                     className="relative !rounded-b-[2vw] bg-[#0a0502] text-white px-6 py-3 rounded-md overflow-hidden 
                       hover:shadow-[0_10px_10px_rgba(166,78,23,0.9)] transition-shadow
                     "
