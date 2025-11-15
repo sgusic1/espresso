@@ -49,6 +49,17 @@ function App() {
     }, 10);
   }
 
+  function unSaveCafe(cafe: Cafe) {
+    setAlert(null);
+    setTimeout(() => {
+      const newSaved = savedCaffes.filter((c) => c.place_id !== cafe.place_id);
+      setSavedCaffes(newSaved);
+      localStorage.setItem("savedCafes", JSON.stringify(newSaved));
+      setAlert("Removed cafe!");
+      setTimeout(() => setAlert(null), 3000);
+    }, 10);
+  }
+
   return (
     <>
       <div className="relative h-screen w-full ">
@@ -143,6 +154,7 @@ function App() {
                 )}
                 {showSavedList && (
                   <button
+                    onClick={() => unSaveCafe(cafe)}
                     className="relative !rounded-b-[2vw] bg-[#0a0502] text-white px-6 py-3 rounded-md overflow-hidden 
                       hover:shadow-[0_10px_10px_rgba(166,78,23,0.9)] transition-shadow
                     "
