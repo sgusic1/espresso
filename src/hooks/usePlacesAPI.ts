@@ -91,6 +91,11 @@ function usePlacesApi(key: string) {
           const unique = merged.filter(
             (c, i, arr) => arr.findIndex((x) => x.place_id === c.place_id) === i
           );
+
+          unique.sort(
+            (a, b) => parseFloat(a.distance) - parseFloat(b.distance)
+          );
+
           localStorage.setItem("cachedCafes", JSON.stringify(unique));
           localStorage.setItem("cachedUrl", url);
           localStorage.setItem(

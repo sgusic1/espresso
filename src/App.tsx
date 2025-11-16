@@ -174,13 +174,15 @@ function App() {
         {!showSavedList && nextPageToken && (
           <div className="mt-10 mb-2 relative z-10 flex flex-col items-center justify-center h-full text-white">
             <button
-              onClick={() => fetchCafes()}
+              onClick={() => {
+                if (coords) fetchCafes(coords.lat, coords.lng);
+              }}
               className="group px-8 py-3 mb-4 !rounded-full 
         bg-[#784b32]/50 border border-[#d7b899]/50 
         backdrop-blur-md text-white shadow-lg 
         hover:bg-[#8a563a]/40 active:scale-95 transition duration-300"
             >
-              <ShinyText text="Find Cafes Near Me" />
+              <ShinyText text="Load More Cafes" />
             </button>
           </div>
         )}
